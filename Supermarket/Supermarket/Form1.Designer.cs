@@ -30,10 +30,10 @@ namespace Supermarket
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.form_user = new System.Windows.Forms.TextBox();
+            this.form_password = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.form_login = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -46,19 +46,19 @@ namespace Supermarket
             this.label1.Text = "User:";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // textBox1
+            // form_user
             // 
-            this.textBox1.Location = new System.Drawing.Point(188, 55);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(125, 27);
-            this.textBox1.TabIndex = 1;
+            this.form_user.Location = new System.Drawing.Point(188, 55);
+            this.form_user.Name = "form_user";
+            this.form_user.Size = new System.Drawing.Size(125, 27);
+            this.form_user.TabIndex = 1;
             // 
-            // textBox2
+            // form_password
             // 
-            this.textBox2.Location = new System.Drawing.Point(188, 105);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(125, 27);
-            this.textBox2.TabIndex = 3;
+            this.form_password.Location = new System.Drawing.Point(188, 105);
+            this.form_password.Name = "form_password";
+            this.form_password.Size = new System.Drawing.Size(125, 27);
+            this.form_password.TabIndex = 3;
             // 
             // label2
             // 
@@ -69,24 +69,25 @@ namespace Supermarket
             this.label2.TabIndex = 2;
             this.label2.Text = "Password:";
             // 
-            // button1
+            // form_login
             // 
-            this.button1.Location = new System.Drawing.Point(188, 169);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 29);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Login";
-            this.button1.UseVisualStyleBackColor = true;
+            this.form_login.Location = new System.Drawing.Point(188, 169);
+            this.form_login.Name = "form_login";
+            this.form_login.Size = new System.Drawing.Size(94, 29);
+            this.form_login.TabIndex = 4;
+            this.form_login.Text = "Login";
+            this.form_login.UseVisualStyleBackColor = true;
+            this.form_login.Click += new System.EventHandler(this.form_login_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(428, 238);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.form_login);
+            this.Controls.Add(this.form_password);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.form_user);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Supermarket";
@@ -99,10 +100,10 @@ namespace Supermarket
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox form_user;
+        private System.Windows.Forms.TextBox form_password;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button form_login;
     }
 }
 
