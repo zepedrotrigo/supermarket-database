@@ -1,7 +1,0 @@
-C:\Users\MSI\Desktop\Supermarket\supermarket-database\Supermarket\Supermarket\obj\Debug\net5.0-windows\Supermarket.csprojAssemblyReference.cache
-C:\Users\MSI\Desktop\Supermarket\supermarket-database\Supermarket\Supermarket\obj\Debug\net5.0-windows\Supermarket.Form1.resources
-C:\Users\MSI\Desktop\Supermarket\supermarket-database\Supermarket\Supermarket\obj\Debug\net5.0-windows\Supermarket.csproj.GenerateResource.cache
-C:\Users\MSI\Desktop\Supermarket\supermarket-database\Supermarket\Supermarket\obj\Debug\net5.0-windows\Supermarket.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\MSI\Desktop\Supermarket\supermarket-database\Supermarket\Supermarket\obj\Debug\net5.0-windows\Supermarket.AssemblyInfoInputs.cache
-C:\Users\MSI\Desktop\Supermarket\supermarket-database\Supermarket\Supermarket\obj\Debug\net5.0-windows\Supermarket.AssemblyInfo.cs
-C:\Users\MSI\Desktop\Supermarket\supermarket-database\Supermarket\Supermarket\obj\Debug\net5.0-windows\Supermarket.csproj.CoreCompileInputs.cache
