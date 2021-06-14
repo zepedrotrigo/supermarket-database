@@ -19,7 +19,6 @@ C:\Users\fortnyce\Desktop\universidade\supermarket-database\Interface\Supermarke
 C:\Users\fortnyce\Desktop\universidade\supermarket-database\Interface\Supermarket\bin\Debug\net5.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\fortnyce\Desktop\universidade\supermarket-database\Interface\Supermarket\bin\Debug\net5.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\fortnyce\Desktop\universidade\supermarket-database\Interface\Supermarket\obj\Debug\net5.0-windows\Supermarket.csprojAssemblyReference.cache
-C:\Users\fortnyce\Desktop\universidade\supermarket-database\Interface\Supermarket\obj\Debug\net5.0-windows\Supermarket.Form1.resources
 C:\Users\fortnyce\Desktop\universidade\supermarket-database\Interface\Supermarket\obj\Debug\net5.0-windows\Supermarket.csproj.GenerateResource.cache
 C:\Users\fortnyce\Desktop\universidade\supermarket-database\Interface\Supermarket\obj\Debug\net5.0-windows\Supermarket.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\fortnyce\Desktop\universidade\supermarket-database\Interface\Supermarket\obj\Debug\net5.0-windows\Supermarket.AssemblyInfoInputs.cache
@@ -30,3 +29,7 @@ C:\Users\fortnyce\Desktop\universidade\supermarket-database\Interface\Supermarke
 C:\Users\fortnyce\Desktop\universidade\supermarket-database\Interface\Supermarket\obj\Debug\net5.0-windows\ref\Supermarket.dll
 C:\Users\fortnyce\Desktop\universidade\supermarket-database\Interface\Supermarket\obj\Debug\net5.0-windows\Supermarket.pdb
 C:\Users\fortnyce\Desktop\universidade\supermarket-database\Interface\Supermarket\obj\Debug\net5.0-windows\Supermarket.genruntimeconfig.cache
+C:\Users\fortnyce\Desktop\universidade\supermarket-database\Interface\Supermarket\obj\Debug\net5.0-windows\Supermarket.MainMenu.resources
+C:\Users\fortnyce\Desktop\universidade\supermarket-database\Interface\Supermarket\obj\Debug\net5.0-windows\Supermarket.Properties.Resources.resources
+C:\Users\fortnyce\Desktop\universidade\supermarket-database\Interface\Supermarket\obj\Debug\net5.0-windows\Supermarket.EmployeesForm.resources
+C:\Users\fortnyce\Desktop\universidade\supermarket-database\Interface\Supermarket\obj\Debug\net5.0-windows\Supermarket.Main.resources

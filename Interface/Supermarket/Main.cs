@@ -12,12 +12,12 @@ using System.Security.Cryptography;
 
 namespace Supermarket
 {
-    public partial class Form1 : Form
+    public partial class Main : Form
     {
-        private SqlConnection cn;
+        private static SqlConnection cn;
 
 
-        public Form1()
+        public Main()
         {
             InitializeComponent();
         }
@@ -42,7 +42,7 @@ namespace Supermarket
 
             cn.Close();
         }
-        private SqlConnection getSGBDConnection()
+        private static SqlConnection getSGBDConnection()
         {
             String dbServer = "tcp:mednat.ieeta.pt\\SQLSERVER,8101";
             String dbName = "p9g1";
@@ -51,7 +51,7 @@ namespace Supermarket
             return new SqlConnection("Data Source = " + dbServer + " ;" + "Initial Catalog = " + dbName + "; uid = " + userName + ";" + "password = " + userPass);
         }
 
-        private bool verifySGBDConnection()
+        private static bool verifySGBDConnection()
         {
             if (cn == null)
                 cn = getSGBDConnection();
@@ -85,9 +85,16 @@ namespace Supermarket
             {
                 cmd1.ExecuteNonQuery();
                 bool retval = (bool)cmd1.Parameters["@retval"].Value;
-                MessageBox.Show(retval.ToString());
-                clear_form();
 
+                if (retval) {
+                    MainMenu mainForm = new MainMenu();
+                    this.Hide(); // mudar de screen
+                    mainForm.Show();
+                } else
+                {
+                    MessageBox.Show("Incorrect Credentials!");
+                    clear_form();
+                }
             }
             catch (Exception ex)
             {
@@ -98,6 +105,54 @@ namespace Supermarket
         private void clear_form()
         {
             form_user.Text = form_password.Text = "";
+        }
+
+        public static int get_table_rows(string table)
+        {
+            int retval=-1;
+
+            if (!verifySGBDConnection())
+                return retval;
+
+            SqlCommand cmd1 = new SqlCommand("getnumrows", cn);
+            cmd1.CommandType = CommandType.StoredProcedure;
+            cmd1.Parameters.AddWithValue("@table", table);
+            cmd1.Parameters.Add("@retval", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+            try
+            {
+                cmd1.ExecuteNonQuery();
+                retval = (int)cmd1.Parameters["@retval"].Value;
+                MessageBox.Show(retval.ToString());
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Unexpected Error: " + ex.Message);
+            }
+
+            return retval;
+        }
+
+        public static void updateList(CheckedListBox list1, string table)
+        {
+            if (!verifySGBDConnection())
+                return;
+
+            try
+            {
+                SqlCommand cmd1 = new SqlCommand();
+                cmd1.Connection = cn;
+                cmd1.CommandText = "SELECT * FROM " + table;
+                SqlDataReader dr = cmd1.ExecuteReader();
+                while (dr.Read())
+                {
+                    list1.Items.Add(dr["NIF"]);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Unexpected Error: " + ex.Message);
+            }
         }
 
         private static string SHA512(string input)

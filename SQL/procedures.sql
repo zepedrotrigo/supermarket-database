@@ -16,3 +16,15 @@ AS
 			END
 	END
 GO
+
+CREATE PROCEDURE dbo.getnumrows
+@table VARCHAR(30),
+@retval INT OUTPUT
+AS
+	BEGIN
+		declare @sql varchar(max)
+		set @sql='SELECT * FROM '+@table
+		execute(@sql)
+		SET @retval = @@ROWCOUNT
+	END
+GO
