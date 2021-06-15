@@ -40,3 +40,4 @@ AS
 			FROM supermarket.person JOIN supermarket.employee on person.NIF = employee.NIF;
 	END
 GO
+

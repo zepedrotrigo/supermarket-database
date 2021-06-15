@@ -20,8 +20,9 @@ namespace Supermarket
 
         private void EmployeesForm_Load(object sender, EventArgs e)
         {
-            checkedListBox1.Items.Add(String.Format(stdDetails, "Name", "NIF", "employeeID", "Phone", "Email", "Job", "Salary", "employeeSince"));
+            checkedListBox1.Items.Add(String.Format(stdDetails, "Name", "NIF", "ID", "Phone", "Email", "Job", "Salary", "employeeSince"));
             Main.updateList(checkedListBox1,"getEmployees", 8);
+            combo_sort_by.Items.Add("");
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -37,6 +38,50 @@ namespace Supermarket
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_clear_Click(object sender, EventArgs e)
+        {
+            txt_name.Clear();
+            txt_nif.Clear();
+            txt_id.Clear();
+            txt_phone.Clear();
+            txt_email.Clear();
+            txt_address.Clear();
+            txt_job.Clear();
+            txt_salary.Clear();
+            txt_employee_since.Clear();
+            combo_sort_by.Text = "Select Type";
         }
 
         //int employeeID = Main.get_table_rows("supermarket.employee");

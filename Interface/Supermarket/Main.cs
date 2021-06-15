@@ -133,7 +133,7 @@ namespace Supermarket
             return retval;
         }
 
-        public static void updateEmployeeList(CheckedListBox list1, string procedureName, int argNum)
+        public static void updateList(CheckedListBox list1, string procedureName, int argNum)
         {
             string str="";
 
