@@ -12,7 +12,6 @@ namespace Supermarket
 {
     public partial class EmployeesForm : Form
     {
-        String stdDetails = "{0, -30}{1,-20}{2,-10}{3,-20}{4,-20}{5,-20}{6,-10}{7,-16}";
         public EmployeesForm()
         {
             InitializeComponent();
@@ -20,22 +19,10 @@ namespace Supermarket
 
         private void EmployeesForm_Load(object sender, EventArgs e)
         {
-            checkedListBox1.Items.Add(String.Format(stdDetails, "Name", "NIF", "ID", "Phone", "Email", "Job", "Salary", "employeeSince"));
-            Main.updateList(checkedListBox1,"getEmployees", 8);
-            Main.fillComboBoxWithDBColumns(combo_sort_by, "getEmployeeColumns");
+            Main.updateList(dataGridView1, "getEmployees");
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
@@ -81,7 +68,11 @@ namespace Supermarket
             txt_job.Clear();
             txt_salary.Clear();
             txt_employee_since.Clear();
-            combo_sort_by.Text = "Select Type";
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
         //int employeeID = Main.get_table_rows("supermarket.employee");

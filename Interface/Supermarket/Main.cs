@@ -133,36 +133,24 @@ namespace Supermarket
             return retval;
         }
 
-        public static void updateList(CheckedListBox list1, string procedureName, int argNum)
+        public static void updateList(DataGridView grid, string procedureName)
         {
-            string str="";
-            SqlDataReader dr;
-
             if (!verifySGBDConnection())
                 return;
 
             try
             {
-                SqlCommand cmd1 = new SqlCommand(procedureName, cn);
-                cmd1.CommandType = CommandType.StoredProcedure;
-                dr = cmd1.ExecuteReader();
-
-                while (dr.Read())
-                {
-                    for (int i = 0; i < argNum; i++)
-                    {
-                        str = str + dr[i].ToString();
-                    }
-
-                    list1.Items.Add(str);
-                    str = "";
-                }
+                SqlCommand cmd = new SqlCommand(procedureName, cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter adp = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+                grid.DataSource = dt;
             }
             catch (Exception ex)
             {
                 throw new Exception("Unexpected Error: " + ex.Message);
             }
-            dr.Close();
         }
 
         public static void fillComboBoxWithDBColumns(ComboBox cb1,string procedure)

@@ -30,7 +30,6 @@ namespace Supermarket
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.button2 = new System.Windows.Forms.Button();
             this.btn_remove = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.Button();
@@ -44,8 +43,6 @@ namespace Supermarket
             this.label4 = new System.Windows.Forms.Label();
             this.txt_email = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.combo_sort_by = new System.Windows.Forms.ComboBox();
             this.btn_clear = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.txt_job = new System.Windows.Forms.TextBox();
@@ -55,6 +52,8 @@ namespace Supermarket
             this.label9 = new System.Windows.Forms.Label();
             this.txt_employee_since = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -66,14 +65,6 @@ namespace Supermarket
             this.button1.Text = "Go Back";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // checkedListBox1
-            // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(12, 123);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(1238, 488);
-            this.checkedListBox1.TabIndex = 2;
             // 
             // button2
             // 
@@ -183,24 +174,6 @@ namespace Supermarket
             this.label6.TabIndex = 14;
             this.label6.Text = "Email:";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(817, 72);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(59, 20);
-            this.label5.TabIndex = 16;
-            this.label5.Text = "Sort by:";
-            // 
-            // combo_sort_by
-            // 
-            this.combo_sort_by.FormattingEnabled = true;
-            this.combo_sort_by.Location = new System.Drawing.Point(907, 70);
-            this.combo_sort_by.Name = "combo_sort_by";
-            this.combo_sort_by.Size = new System.Drawing.Size(125, 28);
-            this.combo_sort_by.TabIndex = 17;
-            this.combo_sort_by.Text = "Select Type";
-            // 
             // btn_clear
             // 
             this.btn_clear.Location = new System.Drawing.Point(1156, 29);
@@ -280,11 +253,29 @@ namespace Supermarket
             this.label10.Text = "Emp. Since:";
             this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 108);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 29;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(1238, 518);
+            this.dataGridView1.TabIndex = 27;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
             // EmployeesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1262, 673);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.txt_employee_since);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txt_address);
@@ -294,8 +285,6 @@ namespace Supermarket
             this.Controls.Add(this.txt_job);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btn_clear);
-            this.Controls.Add(this.combo_sort_by);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.txt_email);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txt_phone);
@@ -309,11 +298,11 @@ namespace Supermarket
             this.Controls.Add(this.btn_add);
             this.Controls.Add(this.btn_remove);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.checkedListBox1);
             this.Controls.Add(this.button1);
             this.Name = "EmployeesForm";
             this.Text = "Employees";
             this.Load += new System.EventHandler(this.EmployeesForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -321,7 +310,6 @@ namespace Supermarket
 
         #endregion
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btn_remove;
         private System.Windows.Forms.Button btn_add;
@@ -335,8 +323,6 @@ namespace Supermarket
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txt_email;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox combo_sort_by;
         private System.Windows.Forms.Button btn_clear;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txt_job;
@@ -346,5 +332,6 @@ namespace Supermarket
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txt_employee_since;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
