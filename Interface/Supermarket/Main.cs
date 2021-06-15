@@ -133,20 +133,28 @@ namespace Supermarket
             return retval;
         }
 
-        public static void updateList(CheckedListBox list1, string table)
+        public static void updateEmployeeList(CheckedListBox list1, string procedureName, int argNum)
         {
+            string str="";
+
             if (!verifySGBDConnection())
                 return;
 
             try
             {
-                SqlCommand cmd1 = new SqlCommand();
-                cmd1.Connection = cn;
-                cmd1.CommandText = "SELECT * FROM " + table;
+                SqlCommand cmd1 = new SqlCommand(procedureName, cn);
+                cmd1.CommandType = CommandType.StoredProcedure;
                 SqlDataReader dr = cmd1.ExecuteReader();
+
                 while (dr.Read())
                 {
-                    list1.Items.Add(dr["NIF"]);
+                    for (int i = 0; i < argNum; i++)
+                    {
+                        str = str + dr[i].ToString();
+                    }
+
+                    list1.Items.Add(str);
+                    str = "";
                 }
             }
             catch (Exception ex)

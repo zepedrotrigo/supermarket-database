@@ -22,9 +22,21 @@ CREATE PROCEDURE dbo.getnumrows
 @retval INT OUTPUT
 AS
 	BEGIN
+		SET NOCOUNT ON;
 		declare @sql varchar(max)
 		set @sql='SELECT * FROM '+@table
 		execute(@sql)
 		SET @retval = @@ROWCOUNT
+	END
+GO
+
+GO
+CREATE PROCEDURE dbo.getEmployees
+AS
+	BEGIN
+		SET NOCOUNT ON;
+		SELECT person.[name], person.NIF, employee.employeeID, person.phone, person.email,
+			employee.jobTitle, employee.salary, employee.employeeSince
+			FROM supermarket.person JOIN supermarket.employee on person.NIF = employee.NIF;
 	END
 GO

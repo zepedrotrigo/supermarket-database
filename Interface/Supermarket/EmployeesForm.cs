@@ -12,6 +12,7 @@ namespace Supermarket
 {
     public partial class EmployeesForm : Form
     {
+        String stdDetails = "{0, -30}{1,-20}{2,-10}{3,-20}{4,-20}{5,-20}{6,-10}{7,-16}";
         public EmployeesForm()
         {
             InitializeComponent();
@@ -19,7 +20,8 @@ namespace Supermarket
 
         private void EmployeesForm_Load(object sender, EventArgs e)
         {
-            Main.updateList(checkedListBox1, "supermarket.employee");
+            checkedListBox1.Items.Add(String.Format(stdDetails, "Name", "NIF", "employeeID", "Phone", "Email", "Job", "Salary", "employeeSince"));
+            Main.updateEmployeeList(checkedListBox1,"getEmployees", 8);
         }
 
         private void button1_Click(object sender, EventArgs e)
