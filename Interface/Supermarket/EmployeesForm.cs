@@ -21,7 +21,7 @@ namespace Supermarket
         private void EmployeesForm_Load(object sender, EventArgs e)
         {
             checkedListBox1.Items.Add(String.Format(stdDetails, "Name", "NIF", "employeeID", "Phone", "Email", "Job", "Salary", "employeeSince"));
-            Main.updateEmployeeList(checkedListBox1,"getEmployees", 8);
+            Main.updateList(checkedListBox1,"getEmployees", 8);
         }
 
         private void button1_Click(object sender, EventArgs e)
