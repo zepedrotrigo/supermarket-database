@@ -107,7 +107,7 @@ namespace Supermarket
             form_user.Text = form_password.Text = "";
         }
 
-        public static int get_table_rows(string table)
+        public static int get_table_rows(string tableName)
         {
             int retval=-1;
 
@@ -116,7 +116,7 @@ namespace Supermarket
 
             SqlCommand cmd1 = new SqlCommand("getnumrows", cn);
             cmd1.CommandType = CommandType.StoredProcedure;
-            cmd1.Parameters.AddWithValue("@table", table);
+            cmd1.Parameters.AddWithValue("@table", tableName);
             cmd1.Parameters.Add("@retval", SqlDbType.Int).Direction = ParameterDirection.Output;
 
             try
@@ -136,6 +136,7 @@ namespace Supermarket
         public static void updateList(CheckedListBox list1, string procedureName, int argNum)
         {
             string str="";
+            SqlDataReader dr;
 
             if (!verifySGBDConnection())
                 return;
@@ -144,7 +145,7 @@ namespace Supermarket
             {
                 SqlCommand cmd1 = new SqlCommand(procedureName, cn);
                 cmd1.CommandType = CommandType.StoredProcedure;
-                SqlDataReader dr = cmd1.ExecuteReader();
+                dr = cmd1.ExecuteReader();
 
                 while (dr.Read())
                 {
@@ -161,6 +162,32 @@ namespace Supermarket
             {
                 throw new Exception("Unexpected Error: " + ex.Message);
             }
+            dr.Close();
+        }
+
+        public static void fillComboBoxWithDBColumns(ComboBox cb1,string procedure)
+        {
+            SqlDataReader dr;
+
+            if (!verifySGBDConnection())
+                return;
+
+            try
+            {
+                SqlCommand cmd1 = new SqlCommand(procedure, cn);
+                cmd1.CommandType = CommandType.StoredProcedure;
+                dr = cmd1.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    cb1.Items.Add(dr[0].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Unexpected Error: " + ex.Message);
+            }
+            dr.Close();
         }
 
         private static string SHA512(string input)

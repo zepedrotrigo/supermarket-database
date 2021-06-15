@@ -22,7 +22,7 @@ namespace Supermarket
         {
             checkedListBox1.Items.Add(String.Format(stdDetails, "Name", "NIF", "ID", "Phone", "Email", "Job", "Salary", "employeeSince"));
             Main.updateList(checkedListBox1,"getEmployees", 8);
-            combo_sort_by.Items.Add("");
+            Main.fillComboBoxWithDBColumns(combo_sort_by, "getEmployeeColumns");
         }
 
         private void button1_Click(object sender, EventArgs e)
