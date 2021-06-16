@@ -52,3 +52,28 @@ AS
 			WHERE TABLE_NAME like 'employee' OR TABLE_NAME like 'person'
 	END
 GO
+
+CREATE PROC dbo.filterEmployees
+(
+    @name VARCHAR(50) = NULL,
+    @nif INT = NULL,
+    @employeeID INT = NULL,
+    @phone VARCHAR(15) = NULL,
+    @email VARCHAR(30) = NULL,
+    @jobTitle VARCHAR(20) = NULL,
+    @salary FLOAT(2) = NULL,
+    @employeeSince DATE = NULL
+)
+AS
+BEGIN
+    SELECT  * 
+    FROM supermarket.person JOIN supermarket.employee on person.NIF = employee.NIF
+    WHERE   (@name IS NULL OR [name] = @name)
+            AND (@nif IS NULL OR person.NIF = @nif)
+            AND (@employeeID IS NULL OR employeeID = @employeeID)
+            AND (@phone IS NULL OR phone = @phone)
+            AND (@email IS NULL OR email = @email)
+            AND (@jobTitle IS NULL OR jobTitle = @jobTitle)
+            AND (@salary IS NULL OR salary = @salary)
+            AND (@employeeSince IS NULL OR employeeSince = @employeeSince)
+END

@@ -133,7 +133,7 @@ namespace Supermarket
             return retval;
         }
 
-        public static void updateList(DataGridView grid, string procedureName)
+        public static void populateList(DataGridView grid, string procedureName)
         {
             if (!verifySGBDConnection())
                 return;
@@ -176,6 +176,26 @@ namespace Supermarket
                 throw new Exception("Unexpected Error: " + ex.Message);
             }
             dr.Close();
+        }
+
+        public static void SearchTableWithFilter(DataGridView grid, string procedureName, List<String>)
+        {
+            if (!verifySGBDConnection())
+                return;
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand(procedureName, cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter adp = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+                grid.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Unexpected Error: " + ex.Message);
+            }
         }
 
         private static string SHA512(string input)
