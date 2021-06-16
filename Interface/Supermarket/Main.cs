@@ -178,7 +178,7 @@ namespace Supermarket
             dr.Close();
         }
 
-        public static void SearchTableWithFilter(DataGridView grid, string procedureName, List<String>)
+        public static void SearchTableWithParameters(DataGridView grid, string procedureName, List<String> parameters)
         {
             if (!verifySGBDConnection())
                 return;
