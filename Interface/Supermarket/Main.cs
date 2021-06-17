@@ -178,7 +178,7 @@ namespace Supermarket
             dr.Close();
         }
 
-        public static void SearchTableWithParameters(DataGridView grid, string procedureName, List<String> parameters)
+        public static void PopulateTableWithParameters(DataGridView grid, string procedureName, Dictionary<string, dynamic> parameters)
         {
             if (!verifySGBDConnection())
                 return;
@@ -187,6 +187,12 @@ namespace Supermarket
             {
                 SqlCommand cmd = new SqlCommand(procedureName, cn);
                 cmd.CommandType = CommandType.StoredProcedure;
+
+                foreach (var item in parameters)
+                {
+                    cmd.Parameters.AddWithValue(item.Key, item.Value);
+                }
+
                 SqlDataAdapter adp = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 adp.Fill(dt);

@@ -30,7 +30,7 @@ namespace Supermarket
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_search = new System.Windows.Forms.Button();
             this.btn_remove = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -66,14 +66,15 @@ namespace Supermarket
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btn_search
             // 
-            this.button2.Location = new System.Drawing.Point(1156, 78);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(94, 29);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Search";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_search.Location = new System.Drawing.Point(1156, 78);
+            this.btn_search.Name = "btn_search";
+            this.btn_search.Size = new System.Drawing.Size(94, 29);
+            this.btn_search.TabIndex = 3;
+            this.btn_search.Text = "Search";
+            this.btn_search.UseVisualStyleBackColor = true;
+            this.btn_search.Click += new System.EventHandler(this.btn_search_Click_1);
             // 
             // btn_remove
             // 
@@ -297,7 +298,7 @@ namespace Supermarket
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_add);
             this.Controls.Add(this.btn_remove);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btn_search);
             this.Controls.Add(this.button1);
             this.Name = "EmployeesForm";
             this.Text = "Employees";
@@ -310,7 +311,7 @@ namespace Supermarket
 
         #endregion
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_search;
         private System.Windows.Forms.Button btn_remove;
         private System.Windows.Forms.Button btn_add;
         private System.Windows.Forms.Label label1;
