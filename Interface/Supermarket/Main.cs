@@ -204,7 +204,7 @@ namespace Supermarket
             }
         }
 
-        public static void InsertIntoDB(string procedureName, Dictionary<string, dynamic> parameters)
+        public static void InsertOrRemoveIntoDB(string procedureName, Dictionary<string, dynamic> parameters)
         {
             if (!verifySGBDConnection())
                 return;

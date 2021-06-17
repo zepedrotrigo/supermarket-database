@@ -106,3 +106,16 @@ BEGIN
 	VALUES(@employeeID, @employeeSince, @salary, @jobTitle, @nif);
 END
 GO
+
+GO
+CREATE PROC dbo.deleteEmployee
+(
+    @nif INT
+)
+AS
+BEGIN
+	SET NOCOUNT ON;
+	DELETE FROM supermarket.employee WHERE nif=@nif
+	DELETE FROM supermarket.person WHERE nif=@nif
+END
+GO

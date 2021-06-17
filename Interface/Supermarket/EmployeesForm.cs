@@ -122,9 +122,20 @@ namespace Supermarket
                     parameters[key] = null;
             }
 
-            Main.InsertIntoDB("addEmployee", parameters);
+            Main.InsertOrRemoveIntoDB("addEmployee", parameters);
+            btn_search.PerformClick(); // Populate/Update List after adding new employee
+        }
+
+        private void btn_remove_Click(object sender, EventArgs e)
+        {
+            Dictionary<string, dynamic> parameters = new Dictionary<string, dynamic>();
+
+            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+            {
+                parameters["@nif"] = Convert.ToInt32(row.Cells[1].Value.ToString());
+                Main.InsertOrRemoveIntoDB("deleteEmployee", parameters);
+            }
             btn_search.PerformClick(); // Populate/Update List after adding new employee
         }
     }
-        //int employeeID = Main.get_table_rows("supermarket.employee");
 }
