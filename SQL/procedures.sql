@@ -82,3 +82,27 @@ BEGIN
             AND (@jobTitle IS NULL OR jobTitle LIKE @jobTitle+'%')
 END
 GO
+
+GO
+CREATE PROC dbo.addEmployee
+(
+    @nif INT = NULL,
+    @name VARCHAR(50) = NULL,
+	@address VARCHAR(100) = NULL,
+	@phone VARCHAR(15) = NULL,
+	@email VARCHAR(30) = NULL,
+    @employeeID INT = NULL,
+	@employeeSince DATE = NULL,
+	@salary FLOAT(2) = NULL,
+    @jobTitle VARCHAR(20) = NULL
+)
+AS
+BEGIN
+	SET NOCOUNT ON;
+	INSERT INTO supermarket.person(NIF, [name], [address], phone, email)
+	VALUES(@nif, @name, @address, @phone, @email);
+	
+	INSERT INTO supermarket.employee(employeeID, employeeSince, salary, jobtitle, NIF)
+	VALUES(@employeeID, @employeeSince, @salary, @jobTitle, @nif);
+END
+GO

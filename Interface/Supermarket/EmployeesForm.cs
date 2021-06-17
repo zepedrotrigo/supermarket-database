@@ -79,14 +79,15 @@ namespace Supermarket
         {
             Dictionary<string, dynamic> parameters = new Dictionary<string, dynamic>()
             {
-                { "@name", txt_name.Text },
                 { "@nif", txt_nif.Text },
-                { "@employeeID", txt_id.Text },
+                { "@name", txt_name.Text },
+                { "@address", txt_address.Text },
                 { "@phone", txt_phone.Text },
                 { "@email", txt_email.Text },
-                { "@jobTitle", txt_job.Text },
-                { "@salary", txt_salary.Text },
+                { "@employeeID", txt_id.Text },
                 { "@employeeSince", txt_employee_since.Text },
+                { "@salary", txt_salary.Text },
+                { "@jobTitle", txt_job.Text }
             };
 
             List<string> parametersKeys = new List<string>(parameters.Keys);
@@ -105,7 +106,7 @@ namespace Supermarket
             {
                 { "@nif", txt_nif.Text },
                 { "@name", txt_name.Text },
-                //{ "@address", txt_address.Text },
+                { "@address", txt_address.Text },
                 { "@phone", txt_phone.Text },
                 { "@email", txt_email.Text },
                 { "@employeeID", txt_id.Text },
@@ -126,5 +127,4 @@ namespace Supermarket
         }
     }
         //int employeeID = Main.get_table_rows("supermarket.employee");
-    }
 }
