@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace Supermarket
 {
-    public partial class EmployeesForm : Form
+    public partial class ClientsForm : Form
     {
-        public EmployeesForm()
+        public ClientsForm()
         {
             InitializeComponent();
         }
 
-        private void EmployeesForm_Load(object sender, EventArgs e)
+        private void ClientsForm_Load(object sender, EventArgs e)
         {
-            Main.populateList(dataGridView1, "getEmployees");
+            Main.populateList(dataGridView1, "getClients");
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -67,9 +67,8 @@ namespace Supermarket
             txt_phone.Clear();
             txt_email.Clear();
             txt_address.Clear();
-            txt_job.Clear();
-            txt_salary.Clear();
-            txt_employee_since.Clear();
+            txt_website.Clear();
+            txt_client_since.Clear();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -81,15 +80,14 @@ namespace Supermarket
         {
             Dictionary<string, dynamic> parameters = new Dictionary<string, dynamic>()
             {
-                { "@nif", txt_nif.Text },
+                { "@clientID", txt_id.Text },
                 { "@name", txt_name.Text },
+                { "@nif", txt_nif.Text },
                 { "@address", txt_address.Text },
                 { "@phone", txt_phone.Text },
                 { "@email", txt_email.Text },
-                { "@employeeID", txt_id.Text },
-                { "@employeeSince", txt_employee_since.Text },
-                { "@jobTitle", txt_job.Text },
-                { "@salary", txt_salary.Text },
+                { "@website", txt_website.Text},
+                { "@clientSince", txt_client_since.Text }
             };
 
             List<string> parametersKeys = new List<string>(parameters.Keys);
@@ -99,22 +97,21 @@ namespace Supermarket
                     parameters[key] = null;
             }
 
-            Main.PopulateTableWithParameters(dataGridView1, "dbo.filterEmployees", parameters);
+            Main.PopulateTableWithParameters(dataGridView1, "dbo.filterClients", parameters);
         }
 
         private void btn_add_Click(object sender, EventArgs e)
         {
             Dictionary<string, dynamic> parameters = new Dictionary<string, dynamic>()
             {
-                { "@nif", txt_nif.Text },
+                { "@clientID", txt_id.Text },
                 { "@name", txt_name.Text },
+                { "@nif", txt_nif.Text },
                 { "@address", txt_address.Text },
                 { "@phone", txt_phone.Text },
                 { "@email", txt_email.Text },
-                { "@employeeID", txt_id.Text },
-                { "@employeeSince", txt_employee_since.Text },
-                { "@salary", txt_salary.Text },
-                { "@jobTitle", txt_job.Text }
+                { "@website", txt_website.Text},
+                { "@clientSince", txt_client_since.Text }
             };
 
             List<string> parametersKeys = new List<string>(parameters.Keys);
@@ -124,8 +121,8 @@ namespace Supermarket
                     parameters[key] = null;
             }
 
-            Main.InsertOrRemoveIntoDB("addEmployee", parameters);
-            btn_search.PerformClick(); // Populate/Update List after adding new employee
+            Main.InsertOrRemoveIntoDB("addClient", parameters);
+            btn_search.PerformClick(); // Populate/Update List after adding new client
         }
 
         private void btn_remove_Click(object sender, EventArgs e)
@@ -135,9 +132,14 @@ namespace Supermarket
             foreach (DataGridViewRow row in dataGridView1.SelectedRows)
             {
                 parameters["@nif"] = Convert.ToInt32(row.Cells[2].Value.ToString());
-                Main.InsertOrRemoveIntoDB("deleteEmployee", parameters);
+                Main.InsertOrRemoveIntoDB("deleteClient", parameters);
             }
-            btn_search.PerformClick(); // Populate/Update List after adding new employee
+            btn_search.PerformClick(); // Populate/Update List after adding new client
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

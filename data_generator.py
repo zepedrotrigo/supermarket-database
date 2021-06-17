@@ -60,7 +60,7 @@ employeeID = 0
 d1 = datetime.datetime.strptime('1/1/2010', '%m/%d/%Y')
 d2 = datetime.datetime.strptime('1/1/2021', '%m/%d/%Y')
 
-for i in range(100):
+for i in range(500):
     name = get_name()
     surname = get_surname()
     phone = get_phone()
@@ -73,7 +73,7 @@ VALUES({nif}, '{get_fullname(name, surname)}', '{get_address()}', '{phone}', \
     
     if random.random() > 0.9: # insert employee
         print(f"INSERT INTO supermarket.employee(employeeID, employeeSince, salary, jobtitle, NIF) \
-VALUES({employeeID}, '{random_date(d1, d2)}', 621, 'Operador de Caixa', {nif});")
+VALUES({employeeID}, '{random_date(d1, d2)}', {random.randrange(600, 700)}, 'Operador de Caixa', {nif});")
         
         employeeID += 1
 

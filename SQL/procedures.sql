@@ -35,7 +35,7 @@ CREATE PROCEDURE dbo.getEmployees
 AS
 	BEGIN
 		SET NOCOUNT ON;
-		SELECT person.[name], person.NIF, employee.employeeID, person.phone, person.email,
+		SELECT employee.employeeID, person.[name], person.NIF, person.[address], person.phone, person.email,
 			employee.jobTitle, employee.salary, employee.employeeSince
 			FROM supermarket.person JOIN supermarket.employee on person.NIF = employee.NIF;
 	END
@@ -116,6 +116,81 @@ AS
 BEGIN
 	SET NOCOUNT ON;
 	DELETE FROM supermarket.employee WHERE nif=@nif
+	DELETE FROM supermarket.person WHERE nif=@nif
+END
+GO
+
+GO
+CREATE PROCEDURE dbo.getClients
+AS
+	BEGIN
+		SET NOCOUNT ON;
+		SELECT client.clientID, person.[name], person.NIF, person.[address], person.phone, person.email,
+			client.website, client.clientSince
+			FROM supermarket.person JOIN supermarket.client on person.NIF = client.NIF;
+	END
+GO
+
+GO
+CREATE PROC dbo.filterClients
+(
+    @clientID INT = NULL,
+    @name VARCHAR(50) = NULL,
+	@nif INT = NULL,
+	@address VARCHAR(100) = NULL,
+	@phone VARCHAR(15) = NULL,
+	@email VARCHAR(30) = NULL,
+	@website VARCHAR(30) = NULL,
+	@clientSince DATE = NULL
+)
+AS
+BEGIN
+	SET NOCOUNT ON;
+    SELECT DISTINCT * 
+    FROM supermarket.person JOIN supermarket.client on person.NIF = client.NIF
+    WHERE   (@nif IS NULL OR person.NIF = @nif)
+            AND (@name IS NULL OR [name] LIKE @name+'%')
+			AND (@address IS NULL OR [address] LIKE @address+'%')
+			AND (@phone IS NULL OR phone LIKE @phone+'%')
+            AND (@email IS NULL OR email LIKE @email+'%')
+            AND (@clientID IS NULL OR clientID = @clientID)
+			AND (@clientSince IS NULL OR clientSince >= @clientSince)
+			AND (@website IS NULL OR website LIKE @website+'%')
+END
+GO
+
+GO
+CREATE PROC dbo.addClient
+(
+    @nif INT = NULL,
+    @name VARCHAR(50) = NULL,
+	@address VARCHAR(100) = NULL,
+	@phone VARCHAR(15) = NULL,
+	@email VARCHAR(30) = NULL,
+    @clientID INT = NULL,
+	@clientSince DATE = NULL,
+	@website VARCHAR(30) = NULL
+)
+AS
+BEGIN
+	SET NOCOUNT ON;
+	INSERT INTO supermarket.person(NIF, [name], [address], phone, email)
+	VALUES(@nif, @name, @address, @phone, @email);
+	
+	INSERT INTO supermarket.client(clientID, clientSince, website, NIF)
+	VALUES(@clientID, @clientSince, @website, @nif);
+END
+GO
+
+GO
+CREATE PROC dbo.deleteClient
+(
+    @nif INT
+)
+AS
+BEGIN
+	SET NOCOUNT ON;
+	DELETE FROM supermarket.client WHERE nif=@nif
 	DELETE FROM supermarket.person WHERE nif=@nif
 END
 GO
