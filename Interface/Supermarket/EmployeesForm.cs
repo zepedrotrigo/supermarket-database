@@ -24,7 +24,9 @@ namespace Supermarket
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            MainMenu mainForm = new MainMenu();
+            this.Hide(); // mudar de screen
+            mainForm.Show();
         }
 
         private void label2_Click(object sender, EventArgs e)

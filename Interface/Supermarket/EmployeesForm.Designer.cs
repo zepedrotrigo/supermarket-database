@@ -68,7 +68,7 @@ namespace Supermarket
             // 
             // btn_search
             // 
-            this.btn_search.Location = new System.Drawing.Point(1156, 78);
+            this.btn_search.Location = new System.Drawing.Point(1156, 29);
             this.btn_search.Name = "btn_search";
             this.btn_search.Size = new System.Drawing.Size(94, 29);
             this.btn_search.TabIndex = 3;
@@ -78,7 +78,7 @@ namespace Supermarket
             // 
             // btn_remove
             // 
-            this.btn_remove.Location = new System.Drawing.Point(1056, 29);
+            this.btn_remove.Location = new System.Drawing.Point(1056, 73);
             this.btn_remove.Name = "btn_remove";
             this.btn_remove.Size = new System.Drawing.Size(94, 29);
             this.btn_remove.TabIndex = 4;
@@ -88,7 +88,7 @@ namespace Supermarket
             // 
             // btn_add
             // 
-            this.btn_add.Location = new System.Drawing.Point(1056, 78);
+            this.btn_add.Location = new System.Drawing.Point(1056, 29);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(94, 29);
             this.btn_add.TabIndex = 5;
@@ -179,7 +179,7 @@ namespace Supermarket
             // 
             // btn_clear
             // 
-            this.btn_clear.Location = new System.Drawing.Point(1156, 29);
+            this.btn_clear.Location = new System.Drawing.Point(1156, 73);
             this.btn_clear.Name = "btn_clear";
             this.btn_clear.Size = new System.Drawing.Size(94, 29);
             this.btn_clear.TabIndex = 18;
