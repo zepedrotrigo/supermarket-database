@@ -122,7 +122,7 @@ namespace Supermarket
                     parameters[key] = null;
             }
 
-            //Main.add_employee_func()
+            Main.InsertIntoDB("addEmployee", parameters);
             btn_search.PerformClick(); // Populate/Update List after adding new employee
         }
     }

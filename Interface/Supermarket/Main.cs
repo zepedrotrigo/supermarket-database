@@ -204,6 +204,29 @@ namespace Supermarket
             }
         }
 
+        public static void InsertIntoDB(string procedureName, Dictionary<string, dynamic> parameters)
+        {
+            if (!verifySGBDConnection())
+                return;
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand(procedureName, cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                foreach (var item in parameters)
+                {
+                    cmd.Parameters.AddWithValue(item.Key, item.Value);
+                }
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Unexpected Error: " + ex.Message);
+            }
+        }
+
         private static string SHA512(string input)
         {
             var bytes = System.Text.Encoding.UTF8.GetBytes(input);
