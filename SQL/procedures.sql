@@ -53,27 +53,32 @@ AS
 	END
 GO
 
+GO
 CREATE PROC dbo.filterEmployees
 (
-    @name VARCHAR(50) = NULL,
     @nif INT = NULL,
+    @name VARCHAR(50) = NULL,
+	@address VARCHAR(100) = NULL,
+	@phone VARCHAR(15) = NULL,
+	@email VARCHAR(30) = NULL,
     @employeeID INT = NULL,
-    @phone VARCHAR(15) = NULL,
-    @email VARCHAR(30) = NULL,
-    @jobTitle VARCHAR(20) = NULL,
-    @salary FLOAT(2) = NULL,
-    @employeeSince DATE = NULL
+	@employeeSince DATE = NULL,
+	@salary FLOAT(2) = NULL,
+    @jobTitle VARCHAR(20) = NULL
 )
 AS
 BEGIN
-    SELECT  * 
+	SET NOCOUNT ON;
+    SELECT DISTINCT * 
     FROM supermarket.person JOIN supermarket.employee on person.NIF = employee.NIF
-    WHERE   (@name IS NULL OR [name] = @name)
-            AND (@nif IS NULL OR person.NIF = @nif)
+    WHERE   (@nif IS NULL OR person.NIF = @nif)
+            AND (@name IS NULL OR [name] LIKE @name+'%')
+			AND (@address IS NULL OR [address] LIKE @address+'%')
+			AND (@phone IS NULL OR phone LIKE @phone+'%')
+            AND (@email IS NULL OR email LIKE @email+'%')
             AND (@employeeID IS NULL OR employeeID = @employeeID)
-            AND (@phone IS NULL OR phone = @phone)
-            AND (@email IS NULL OR email = @email)
-            AND (@jobTitle IS NULL OR jobTitle = @jobTitle)
-            AND (@salary IS NULL OR salary = @salary)
-            AND (@employeeSince IS NULL OR employeeSince = @employeeSince)
+			AND (@employeeSince IS NULL OR employeeSince >= @employeeSince)
+			AND (@salary IS NULL OR salary >= @salary)
+            AND (@jobTitle IS NULL OR jobTitle LIKE @jobTitle+'%')
 END
+GO

@@ -98,6 +98,33 @@ namespace Supermarket
 
             Main.PopulateTableWithParameters(dataGridView1, "dbo.filterEmployees", parameters);
         }
+
+        private void btn_add_Click(object sender, EventArgs e)
+        {
+            Dictionary<string, dynamic> parameters = new Dictionary<string, dynamic>()
+            {
+                { "@nif", txt_nif.Text },
+                { "@name", txt_name.Text },
+                //{ "@address", txt_address.Text },
+                { "@phone", txt_phone.Text },
+                { "@email", txt_email.Text },
+                { "@employeeID", txt_id.Text },
+                { "@employeeSince", txt_employee_since.Text },
+                { "@salary", txt_salary.Text },
+                { "@jobTitle", txt_job.Text }
+            };
+
+            List<string> parametersKeys = new List<string>(parameters.Keys);
+            foreach (var key in parametersKeys) // replace empty inputs with null (required for the db stored procedure)
+            {
+                if (parameters[key] == "")
+                    parameters[key] = null;
+            }
+
+            //Main.add_employee_func()
+            btn_search.PerformClick(); // Populate/Update List after adding new employee
+        }
+    }
         //int employeeID = Main.get_table_rows("supermarket.employee");
     }
 }

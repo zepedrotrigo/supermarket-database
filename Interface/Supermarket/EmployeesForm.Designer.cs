@@ -93,6 +93,7 @@ namespace Supermarket
             this.btn_add.TabIndex = 5;
             this.btn_add.Text = "Add";
             this.btn_add.UseVisualStyleBackColor = true;
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // label1
             // 
