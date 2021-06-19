@@ -35,21 +35,18 @@ CREATE PROCEDURE dbo.getEmployees
 AS
 	BEGIN
 		SET NOCOUNT ON;
-		SELECT employee.employeeID, person.[name], person.NIF, person.[address], person.phone, person.email,
-			employee.jobTitle, employee.salary, employee.employeeSince
-			FROM supermarket.person JOIN supermarket.employee on person.NIF = employee.NIF;
+		SELECT * FROM view_employees
 	END
 GO
 
 GO
-
 CREATE PROCEDURE dbo.getEmployeeColumns
 AS
 	BEGIN
 		SET NOCOUNT ON;
 		SELECT DISTINCT COLUMN_NAME
 			FROM INFORMATION_SCHEMA.COLUMNS
-			WHERE TABLE_NAME like 'employee' OR TABLE_NAME like 'person'
+			WHERE TABLE_NAME like 'view_employees'
 	END
 GO
 
@@ -70,7 +67,7 @@ AS
 BEGIN
 	SET NOCOUNT ON;
     SELECT DISTINCT * 
-    FROM supermarket.person JOIN supermarket.employee on person.NIF = employee.NIF
+    FROM view_employees
     WHERE   (@nif IS NULL OR person.NIF = @nif)
             AND (@name IS NULL OR [name] LIKE @name+'%')
 			AND (@address IS NULL OR [address] LIKE @address+'%')
@@ -125,9 +122,7 @@ CREATE PROCEDURE dbo.getClients
 AS
 	BEGIN
 		SET NOCOUNT ON;
-		SELECT client.clientID, person.[name], person.NIF, person.[address], person.phone, person.email,
-			client.website, client.clientSince
-			FROM supermarket.person JOIN supermarket.client on person.NIF = client.NIF;
+		SELECT * FROM view_clients
 	END
 GO
 
@@ -147,8 +142,8 @@ AS
 BEGIN
 	SET NOCOUNT ON;
     SELECT DISTINCT * 
-    FROM supermarket.person JOIN supermarket.client on person.NIF = client.NIF
-    WHERE   (@nif IS NULL OR person.NIF = @nif)
+    FROM view_clients
+    WHERE   (@nif IS NULL OR NIF = @nif)
             AND (@name IS NULL OR [name] LIKE @name+'%')
 			AND (@address IS NULL OR [address] LIKE @address+'%')
 			AND (@phone IS NULL OR phone LIKE @phone+'%')

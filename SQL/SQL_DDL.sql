@@ -96,5 +96,5 @@ CREATE TABLE supermarket.login(
 	username INT NOT NULL,
 	password VARCHAR(128) NOT NULL,
 	PRIMARY KEY (username)
-);	
+);
 
