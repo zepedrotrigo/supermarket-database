@@ -58,6 +58,12 @@ namespace Supermarket
         private void MainMenu_Load(object sender, EventArgs e)
         {
             textBox2.Text = "1";
+            dataGridView1.ColumnCount = 5;
+            dataGridView1.Columns[0].Name = "Product Bar Code";
+            dataGridView1.Columns[1].Name = "Product Name";
+            dataGridView1.Columns[2].Name = "Product Brand";
+            dataGridView1.Columns[3].Name = "Product Price";
+            dataGridView1.Columns[4].Name = "Amount";
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -79,7 +85,23 @@ namespace Supermarket
 
         private void add_product_Click(object sender, EventArgs e)
         {
+            int barcode = Int32.Parse(textBox1.Text);
+            int amount = Int32.Parse(textBox2.Text);
+            bool retval = true;
 
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (barcode.ToString() == row.Cells[0].Value.ToString())
+                {
+                    row.Cells[4].Value = Int32.Parse(row.Cells[4].Value.ToString()) + amount;
+                    retval = false;
+                }
+            }
+
+            if (retval)
+            {
+                Main.addProductToShoppingList(dataGridView1, barcode, amount);
+            }
         }
     }
 }

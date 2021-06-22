@@ -137,7 +137,7 @@ namespace Supermarket
                 parameters["@nif"] = Convert.ToInt32(row.Cells[2].Value.ToString());
                 Main.InsertOrRemoveIntoDB("deleteEmployee", parameters);
             }
-            btn_search.PerformClick(); // Populate/Update List after adding new employee
+            btn_search.PerformClick(); // Populate/Update List after deleting employee
         }
     }
 }

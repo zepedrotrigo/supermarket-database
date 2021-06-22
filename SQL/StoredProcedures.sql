@@ -190,3 +190,28 @@ BEGIN
 END
 GO
 
+GO
+CREATE PROCEDURE dbo.getProduct
+@barcode INT
+
+AS
+	BEGIN
+		SET NOCOUNT ON;
+		SELECT barcode, [name], brand, retailUnitPrice FROM supermarket.product WHERE barcode = @barcode
+	END
+GO
+
+GO
+CREATE PROCEDURE dbo.addToShoppingList
+@orderNumber INT,
+@barcode INT,
+@amount INT
+
+AS
+	BEGIN
+		SET NOCOUNT ON;
+		INSERT INTO supermarket.shoppingList(orderNumber, productBarCode, amount) VALUES(@orderNumber, @barcode, @amount)
+	END
+GO
+
+

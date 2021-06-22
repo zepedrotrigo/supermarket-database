@@ -53,6 +53,7 @@ namespace Supermarket
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.button10 = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -115,9 +116,13 @@ namespace Supermarket
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(13, 87);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
             this.dataGridView1.Size = new System.Drawing.Size(978, 574);
@@ -178,16 +183,16 @@ namespace Supermarket
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(1070, 567);
+            this.button6.Location = new System.Drawing.Point(1117, 601);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(133, 37);
+            this.button6.Size = new System.Drawing.Size(133, 52);
             this.button6.TabIndex = 17;
             this.button6.Text = "Confirm Purchase";
             this.button6.UseVisualStyleBackColor = true;
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(1070, 438);
+            this.button7.Location = new System.Drawing.Point(1070, 442);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(133, 37);
             this.button7.TabIndex = 18;
@@ -196,7 +201,7 @@ namespace Supermarket
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(1070, 481);
+            this.button8.Location = new System.Drawing.Point(1070, 485);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(133, 37);
             this.button8.TabIndex = 19;
@@ -228,7 +233,7 @@ namespace Supermarket
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(1070, 524);
+            this.button9.Location = new System.Drawing.Point(1070, 528);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(133, 37);
             this.button9.TabIndex = 24;
@@ -270,11 +275,22 @@ namespace Supermarket
             this.button10.UseVisualStyleBackColor = true;
             this.button10.Click += new System.EventHandler(this.add_product_Click);
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(1021, 616);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(90, 24);
+            this.checkBox1.TabIndex = 29;
+            this.checkBox1.Text = "Pay Later";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1262, 673);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.button10);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox5);
@@ -331,5 +347,6 @@ namespace Supermarket
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

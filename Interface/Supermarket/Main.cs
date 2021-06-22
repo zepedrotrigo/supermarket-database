@@ -247,6 +247,40 @@ namespace Supermarket
             }
         }
 
+        public static void addProductToShoppingList(DataGridView grid, int barcode, int amount)
+        {
+            SqlDataReader dr;
+
+            if (!verifySGBDConnection())
+                return;
+
+            try
+            {
+                // Return product_list view to show in grid
+                SqlCommand cmd = new SqlCommand("getProduct", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@barcode", barcode);
+                cmd.ExecuteNonQuery();
+                dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    string[] row = new string[] { dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString()+"€", amount.ToString() };
+                    grid.Rows.Add(row);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Unexpected Error: " + ex.Message);
+            }
+            dr.Close();
+        }
+
+        public static int getOrderNumber()
+        {
+            return get_table_rows("supermarket.invoice");
+        }
+
         private static string SHA512(string input)
         {
             var bytes = System.Text.Encoding.UTF8.GetBytes(input);
