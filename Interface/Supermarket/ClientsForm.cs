@@ -141,5 +141,15 @@ namespace Supermarket
         {
 
         }
+
+        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            var row = dataGridView1.Rows[e.RowIndex];
+            var changedAttribute = dataGridView1.Columns[e.ColumnIndex].Name;
+            var value = row.Cells[e.ColumnIndex].Value;
+            var pk_nif = (int)row.Cells[0].Value;
+
+            Main.updateClientOrEmployee(pk_nif, changedAttribute, value);
+        }
     }
 }

@@ -227,6 +227,26 @@ namespace Supermarket
             }
         }
 
+        public static void updateClientOrEmployee(int pk_nif, string attribute, dynamic value)
+        {
+            if (!verifySGBDConnection())
+                return;
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand("updateClientOrEmployee", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@nif", pk_nif);
+                cmd.Parameters.AddWithValue("@attribute", attribute);
+                cmd.Parameters.AddWithValue("@value", value);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Unexpected Error: " + ex.Message);
+            }
+        }
+
         private static string SHA512(string input)
         {
             var bytes = System.Text.Encoding.UTF8.GetBytes(input);

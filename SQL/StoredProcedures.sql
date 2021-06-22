@@ -189,3 +189,4 @@ BEGIN
 	DELETE FROM supermarket.person WHERE nif=@nif
 END
 GO
+

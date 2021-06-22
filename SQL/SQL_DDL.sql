@@ -72,24 +72,24 @@ CREATE TABLE supermarket.product(
 
 CREATE TABLE supermarket.shoppingList(
 	orderNumber INT,
-	[counter] INT,
-	employeeID INT,
 	productBarCode INT,
-	client INT,
-	employee INT,
+	amount INT,
+
 	PRIMARY KEY (orderNumber),
-	FOREIGN KEY (productBarCode) REFERENCES supermarket.product(barCode),
-	FOREIGN KEY (client) REFERENCES supermarket.client(clientID),
-	FOREIGN KEY (employee) REFERENCES supermarket.employee(employeeID)
+	FOREIGN KEY (productBarCode) REFERENCES supermarket.product(barCode)
 );
 CREATE TABLE supermarket.invoice(
 	referenceNumber INT,
 	[date] DATE,
-	dueDate DATE,
-	value FLOAT,
+	[paymentValue] FLOAT,
 	paid BIT,
-	productList INT
-	FOREIGN KEY (productList) REFERENCES supermarket.shoppingList(orderNumber)
+	[counter] INT,
+	employeeID INT,
+	clientID INT,
+	employee INT,
+
+	FOREIGN KEY (clientID) REFERENCES supermarket.client(clientID),
+	FOREIGN KEY (employeeID) REFERENCES supermarket.employee(employeeID)
 );	
 
 CREATE TABLE supermarket.login(

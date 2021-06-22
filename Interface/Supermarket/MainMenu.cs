@@ -49,5 +49,37 @@ namespace Supermarket
                     break;
             }
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MainMenu_Load(object sender, EventArgs e)
+        {
+            textBox2.Text = "1";
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int value = Int32.Parse(textBox2.Text);
+            value++;
+            textBox2.Text = value.ToString();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            int value = Int32.Parse(textBox2.Text);
+
+            if (value > 1)
+                value--;
+
+            textBox2.Text = value.ToString();
+        }
+
+        private void add_product_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
