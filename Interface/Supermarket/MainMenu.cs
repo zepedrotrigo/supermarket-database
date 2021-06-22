@@ -103,5 +103,18 @@ namespace Supermarket
                 Main.addProductToShoppingList(dataGridView1, barcode, amount);
             }
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Clear();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+            {
+                dataGridView1.Rows.RemoveAt(row.Index);
+            }
+        }
     }
 }

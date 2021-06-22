@@ -54,6 +54,7 @@ namespace Supermarket
             this.label4 = new System.Windows.Forms.Label();
             this.button10 = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.button11 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,7 +62,7 @@ namespace Supermarket
             // 
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(286, 12);
+            this.button3.Location = new System.Drawing.Point(423, 12);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(131, 68);
             this.button3.TabIndex = 7;
@@ -74,7 +75,7 @@ namespace Supermarket
             // 
             this.btn_employees.Image = ((System.Drawing.Image)(resources.GetObject("btn_employees.Image")));
             this.btn_employees.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_employees.Location = new System.Drawing.Point(423, 12);
+            this.btn_employees.Location = new System.Drawing.Point(560, 12);
             this.btn_employees.Name = "btn_employees";
             this.btn_employees.Size = new System.Drawing.Size(131, 68);
             this.btn_employees.TabIndex = 8;
@@ -87,7 +88,7 @@ namespace Supermarket
             // 
             this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
             this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(149, 12);
+            this.button5.Location = new System.Drawing.Point(286, 12);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(131, 68);
             this.button5.TabIndex = 9;
@@ -117,7 +118,6 @@ namespace Supermarket
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(13, 87);
@@ -125,6 +125,7 @@ namespace Supermarket
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(978, 574);
             this.dataGridView1.TabIndex = 10;
             // 
@@ -198,6 +199,7 @@ namespace Supermarket
             this.button7.TabIndex = 18;
             this.button7.Text = "Remove Selected";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button8
             // 
@@ -207,6 +209,7 @@ namespace Supermarket
             this.button8.TabIndex = 19;
             this.button8.Text = "Clear List";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // label3
             // 
@@ -285,11 +288,24 @@ namespace Supermarket
             this.checkBox1.Text = "Pay Later";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
+            // button11
+            // 
+            this.button11.Image = ((System.Drawing.Image)(resources.GetObject("button11.Image")));
+            this.button11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button11.Location = new System.Drawing.Point(149, 12);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(131, 68);
+            this.button11.TabIndex = 30;
+            this.button11.Text = "Invoices";
+            this.button11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button11.UseVisualStyleBackColor = true;
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1262, 673);
+            this.Controls.Add(this.button11);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.button10);
             this.Controls.Add(this.label5);
@@ -348,5 +364,6 @@ namespace Supermarket
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button button11;
     }
 }
