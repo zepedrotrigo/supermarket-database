@@ -55,6 +55,7 @@ namespace Supermarket
             this.button10 = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button11 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,7 +63,7 @@ namespace Supermarket
             // 
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(423, 12);
+            this.button3.Location = new System.Drawing.Point(560, 12);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(131, 68);
             this.button3.TabIndex = 7;
@@ -75,7 +76,7 @@ namespace Supermarket
             // 
             this.btn_employees.Image = ((System.Drawing.Image)(resources.GetObject("btn_employees.Image")));
             this.btn_employees.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_employees.Location = new System.Drawing.Point(560, 12);
+            this.btn_employees.Location = new System.Drawing.Point(697, 12);
             this.btn_employees.Name = "btn_employees";
             this.btn_employees.Size = new System.Drawing.Size(131, 68);
             this.btn_employees.TabIndex = 8;
@@ -88,13 +89,14 @@ namespace Supermarket
             // 
             this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
             this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(286, 12);
+            this.button5.Location = new System.Drawing.Point(423, 12);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(131, 68);
             this.button5.TabIndex = 9;
             this.button5.Text = "Suppliers";
             this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button1
             // 
@@ -104,9 +106,10 @@ namespace Supermarket
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(131, 68);
             this.button1.TabIndex = 5;
-            this.button1.Text = "Products";
+            this.button1.Text = "Sales Menu";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // hScrollBar1
             // 
@@ -299,12 +302,27 @@ namespace Supermarket
             this.button11.Text = "Invoices";
             this.button11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
+            // 
+            // button12
+            // 
+            this.button12.Image = ((System.Drawing.Image)(resources.GetObject("button12.Image")));
+            this.button12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button12.Location = new System.Drawing.Point(286, 13);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(131, 68);
+            this.button12.TabIndex = 31;
+            this.button12.Text = "Products";
+            this.button12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1262, 673);
+            this.Controls.Add(this.button12);
             this.Controls.Add(this.button11);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.button10);
@@ -365,5 +383,6 @@ namespace Supermarket
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button button12;
     }
 }

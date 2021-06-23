@@ -14,11 +14,17 @@ namespace Supermarket
     {
         EmployeesForm employeesForm;
         ClientsForm clientsForm;
+        ProductsForm productsForm;
+        SuppliersForm suppliersForm;
+        InvoicesForm invoicesForm;
         public MainMenu()
         {
             InitializeComponent();
+            productsForm = new ProductsForm();
             employeesForm = new EmployeesForm();
             clientsForm = new ClientsForm();
+            suppliersForm = new SuppliersForm();
+            invoicesForm = new InvoicesForm();
         }
 
         private void btn_sales_Click(object sender, EventArgs e)
@@ -29,6 +35,22 @@ namespace Supermarket
         private void button3_Click(object sender, EventArgs e)
         {
             changeTab(5);
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //salesmenu button
+        }
+        private void button11_Click(object sender, EventArgs e)
+        {
+            changeTab(2);
+        }
+        private void button12_Click(object sender, EventArgs e)
+        {
+            changeTab(3);
+        }
+        private void button5_Click(object sender, EventArgs e)
+        {
+            changeTab(4);
         }
 
         private void btn_employees_Click_1(object sender, EventArgs e)
@@ -41,6 +63,15 @@ namespace Supermarket
 
             switch (i)
             {
+                case 2:
+                    invoicesForm.Show();
+                    break;
+                case 3:
+                    productsForm.Show();
+                    break;
+                case 4:
+                    suppliersForm.Show();
+                    break;
                 case 5:
                     clientsForm.Show();
                     break;
