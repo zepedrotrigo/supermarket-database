@@ -11,3 +11,12 @@ FROM supermarket.person JOIN supermarket.client on person.NIF = client.NIF;
 CREATE VIEW product_list AS
 SELECT DISTINCT barcode, [name], brand, retailUnitPrice, amount
 FROM supermarket.product JOIN supermarket.shoppingList on product.barcode = shoppingList.productBarCode;
+
+CREATE VIEW view_suppliers AS
+SELECT supplierID, organizationName, [address], email, phone, 
+supplierSince, NIF, website, [description]
+FROM supermarket.supplier
+
+CREATE VIEW view_shoppingList AS
+SELECT orderNumber, productBarCode, amount
+FROM supermarket.shoppingList JOIN supermarket.invoice on shoppingList.orderNumber = invoice.referenceNumber

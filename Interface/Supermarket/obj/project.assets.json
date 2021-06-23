@@ -454,19 +454,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\fortnyce\\.nuget\\packages\\": {}
+    "C:\\Users\\MSI\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\fortnyce\\Desktop\\universidade\\supermarket-database\\Interface\\Supermarket\\Supermarket.csproj",
+      "projectUniqueName": "C:\\Users\\MSI\\Desktop\\SupermarketBD\\supermarket-database\\Interface\\Supermarket\\Supermarket.csproj",
       "projectName": "Supermarket",
-      "projectPath": "C:\\Users\\fortnyce\\Desktop\\universidade\\supermarket-database\\Interface\\Supermarket\\Supermarket.csproj",
-      "packagesPath": "C:\\Users\\fortnyce\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\fortnyce\\Desktop\\universidade\\supermarket-database\\Interface\\Supermarket\\obj\\",
+      "projectPath": "C:\\Users\\MSI\\Desktop\\SupermarketBD\\supermarket-database\\Interface\\Supermarket\\Supermarket.csproj",
+      "packagesPath": "C:\\Users\\MSI\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\MSI\\Desktop\\SupermarketBD\\supermarket-database\\Interface\\Supermarket\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\fortnyce\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\MSI\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -515,7 +515,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.204\\RuntimeIdentifierGraph.json"
       }
     }
   }

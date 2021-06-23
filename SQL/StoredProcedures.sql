@@ -214,4 +214,26 @@ AS
 	END
 GO
 
+CREATE PROCEDURE dbo.getSuppliers
+AS
+	BEGIN
+		SET NOCOUNT ON;
+		SELECT * FROM view_suppliers
+	END
+GO
 
+CREATE PROCEDURE dbo.createInvoice
+(
+	@referenceNumber INT = null,
+	@date DATE = NULL,
+	@paymentValue FLOAT = NULL,
+	@paid BIT = NULL,
+	@counter INT = NULL,
+	@employee INT = NUL
+)
+AS
+	BEGIN
+		SET NOCOUNT ON;
+		INSERT INTO supermarket.invoice(referenceNumber, [date], [paymentValue], paid, [counter], employee) VALUES (@referenceNumber, @date, @paumentValue, @paid, @counter, @employee);
+	END
+GO

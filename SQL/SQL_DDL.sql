@@ -69,15 +69,16 @@ CREATE TABLE supermarket.product(
 	FOREIGN KEY (wareHouseNumber) REFERENCES supermarket.wareHouse(number)
 );
 
-
 CREATE TABLE supermarket.shoppingList(
 	orderNumber INT,
 	productBarCode INT,
 	amount INT,
 
 	PRIMARY KEY (orderNumber),
+	FOREIGN KEY (orderNumber) REFERENCES supermarket.invoice(referenceNumber),
 	FOREIGN KEY (productBarCode) REFERENCES supermarket.product(barCode)
 );
+
 CREATE TABLE supermarket.invoice(
 	referenceNumber INT,
 	[date] DATE,
@@ -88,6 +89,7 @@ CREATE TABLE supermarket.invoice(
 	clientID INT,
 	employee INT,
 
+	PRIMARY KEY (referenceNumber),
 	FOREIGN KEY (clientID) REFERENCES supermarket.client(clientID),
 	FOREIGN KEY (employeeID) REFERENCES supermarket.employee(employeeID)
 );	

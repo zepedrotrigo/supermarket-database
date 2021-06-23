@@ -19,7 +19,7 @@ namespace Supermarket
 
         private void SuppliersForm_Load(object sender, EventArgs e)
         {
-            Main.populateList(dataGridView1, "getEmployees"); // Mudar para getSuppliers
+            Main.populateList(dataGridView1, "getSuppliers"); // Mudar para getSuppliers
         }
 
         private void button1_Click(object sender, EventArgs e)

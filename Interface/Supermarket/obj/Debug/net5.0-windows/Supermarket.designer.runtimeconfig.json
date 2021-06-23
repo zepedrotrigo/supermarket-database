@@ -6,8 +6,8 @@
       "version": "5.0.0"
     },
     "additionalProbingPaths": [
-      "C:\\Users\\fortnyce\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\fortnyce\\.nuget\\packages"
+      "C:\\Users\\MSI\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\MSI\\.nuget\\packages"
     ],
     "configProperties": {
       "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true
