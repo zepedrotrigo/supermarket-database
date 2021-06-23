@@ -20,3 +20,7 @@ FROM supermarket.supplier
 CREATE VIEW view_shoppingList AS
 SELECT orderNumber, productBarCode, amount
 FROM supermarket.shoppingList JOIN supermarket.invoice on shoppingList.orderNumber = invoice.referenceNumber
+
+CREATE VIEW view_invoices AS
+SELECT referenceNumber, [date], [paymentValue], paid, [counter], employee
+FROM supermarket.invoice

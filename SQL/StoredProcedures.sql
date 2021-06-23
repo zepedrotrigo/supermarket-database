@@ -237,3 +237,11 @@ AS
 		INSERT INTO supermarket.invoice(referenceNumber, [date], [paymentValue], paid, [counter], employee) VALUES (@referenceNumber, @date, @paumentValue, @paid, @counter, @employee);
 	END
 GO
+
+CREATE PROCEDURE dbo.getInvoices
+AS
+	BEGIN
+		SET NOCOUNT ON;
+		SELECT * FROM view_invoices
+	END
+GO
