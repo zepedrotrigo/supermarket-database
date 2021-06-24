@@ -150,18 +150,18 @@ namespace Supermarket
 
         private void button6_Click(object sender, EventArgs e)
         {
-            int counter = Main.get_table_rows("supermarket.invoice")+1; // returns number of column lines
+            int counter = Main.get_table_rows("supermarket.invoice")+2; // returns number of column lines
             Boolean paid;
             Dictionary<string, dynamic> parameters = new Dictionary<string, dynamic>();
             Dictionary<string, dynamic> parameters2 = new Dictionary<string, dynamic>();
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                //float productPrice = float.Parse(row.Cells[3].Value.ToString());
+                float productPrice = float.Parse(row.Cells[3].Value.ToString().Replace("€",""));
                 int amount = Convert.ToInt32(row.Cells[4].Value.ToString());
 
                 parameters["@referenceNumber"] = counter;
                 parameters["@date"] = DateTime.Now;
-                parameters["@paymentValue"] = 2 * amount;
+                parameters["@paymentValue"] = productPrice * amount;
                 if (checkBox1.Checked)
                 {
                     paid = false;
