@@ -150,14 +150,16 @@ namespace Supermarket
 
         private void button6_Click(object sender, EventArgs e)
         {
+            int counter = Main.get_table_rows("supermarket.invoice")+1; // returns number of column lines
             Boolean paid;
             Dictionary<string, dynamic> parameters = new Dictionary<string, dynamic>();
+            Dictionary<string, dynamic> parameters2 = new Dictionary<string, dynamic>();
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 //float productPrice = float.Parse(row.Cells[3].Value.ToString());
                 int amount = Convert.ToInt32(row.Cells[4].Value.ToString());
 
-                parameters["@referenceNumber"] = 83; 
+                parameters["@referenceNumber"] = counter;
                 parameters["@date"] = DateTime.Now;
                 parameters["@paymentValue"] = 2 * amount;
                 if (checkBox1.Checked)
@@ -170,12 +172,16 @@ namespace Supermarket
                 }
 
                 parameters["@paid"] = paid;
-                //parameters["@counter"] = 2;
-                //parameters["@employee"] = "Pedro";
-                //parameters["@orderNumber"] = Convert.ToInt32(row.Cells[0].Value.ToString());
+                parameters["@counter"] = 2;
+                parameters["@employee"] = 1;
+                //parameters["@orderNumber"] = counter;
                 //parameters["@barCode"] = Convert.ToInt32(row.Cells[0].Value.ToString());
                 //parameters["@amount"] = Convert.ToInt32(row.Cells[4].Value.ToString());
                 Main.InsertOrRemoveIntoDB("createInvoice", parameters);
+                //parameters2["@orderNumber"] = counter;
+                //parameters2["@barCode"] = Convert.ToInt32(row.Cells[0].Value.ToString());
+                //parameters2["@amount"] = Convert.ToInt32(row.Cells[4].Value.ToString());
+                //Main.InsertOrRemoveIntoDB("addToShoppingList", parameters2);
             }
             dataGridView1.Rows.Clear();
         }
