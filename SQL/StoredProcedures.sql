@@ -210,7 +210,8 @@ CREATE PROCEDURE dbo.addToShoppingList
 AS
 	BEGIN
 		SET NOCOUNT ON;
-		INSERT INTO supermarket.shoppingList(orderNumber, productBarCode, amount) VALUES(@orderNumber, @barcode, @amount)
+		INSERT INTO supermarket.shoppingList(orderNumber, productBarCode, amount) 
+		VALUES(@orderNumber, @barcode, @amount)
 	END
 GO
 
@@ -229,14 +230,16 @@ CREATE PROCEDURE dbo.createInvoice
 	@paymentValue FLOAT = NULL,
 	@paid BIT = NULL,
 	@counter INT = NULL,
-	@employee INT = NUL
+	@employee INT = NULL
 )
 AS
 	BEGIN
 		SET NOCOUNT ON;
-		INSERT INTO supermarket.invoice(referenceNumber, [date], [paymentValue], paid, [counter], employee) VALUES (@referenceNumber, @date, @paumentValue, @paid, @counter, @employee);
+		INSERT INTO supermarket.invoice(referenceNumber, [date], [paymentValue], paid, [counter], employee) 
+		VALUES (@referenceNumber, @date, @paymentValue, @paid, @counter, @employee);
 	END
 GO
+
 
 CREATE PROCEDURE dbo.getInvoices
 AS
@@ -245,3 +248,16 @@ AS
 		SELECT * FROM view_invoices
 	END
 GO
+
+
+
+select * from supermarket.invoice;
+exec addToShoppingList @orderNumber = 0, @barcode = 123, @amount = 5
+insert into supermarket.invoice (referenceNumber, [date], paymentValue, paid, [counter], employeeID,clientID,employee)
+values (2, GETDATE(),17.0,1,2,0,0,0)
+
+insert into supermarket.shoppingList (orderNumber,productBarCode ,amount)
+values (2,1,5)
+
+select * from supermarket.shoppingList
+delete from supermarket.invoice

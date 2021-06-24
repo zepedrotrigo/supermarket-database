@@ -193,6 +193,7 @@ namespace Supermarket
             this.button6.TabIndex = 17;
             this.button6.Text = "Confirm Purchase";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button7
             // 
@@ -283,13 +284,11 @@ namespace Supermarket
             // 
             // checkBox1
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(1021, 616);
+            this.checkBox1.Location = new System.Drawing.Point(1007, 629);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(90, 24);
-            this.checkBox1.TabIndex = 29;
+            this.checkBox1.Size = new System.Drawing.Size(104, 24);
+            this.checkBox1.TabIndex = 32;
             this.checkBox1.Text = "Pay Later";
-            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // button11
             // 
