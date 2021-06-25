@@ -123,7 +123,7 @@ namespace Supermarket
             {
                 cmd1.ExecuteNonQuery();
                 retval = (int)cmd1.Parameters["@retval"].Value;
-                MessageBox.Show(retval.ToString());
+                //MessageBox.Show(retval.ToString());
             }
             catch (Exception ex)
             {

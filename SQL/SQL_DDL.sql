@@ -74,10 +74,11 @@ CREATE TABLE supermarket.shoppingList(
 	productBarCode INT,
 	amount INT,
 
-	PRIMARY KEY (orderNumber),
+	PRIMARY KEY (orderNumber, productBarCode),
 	FOREIGN KEY (orderNumber) REFERENCES supermarket.invoice(referenceNumber),
 	FOREIGN KEY (productBarCode) REFERENCES supermarket.product(barCode)
 );
+drop table supermarket.shoppingList
 
 CREATE TABLE supermarket.invoice(
 	referenceNumber INT,
@@ -99,4 +100,3 @@ CREATE TABLE supermarket.login(
 	password VARCHAR(128) NOT NULL,
 	PRIMARY KEY (username)
 );
-
