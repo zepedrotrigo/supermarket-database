@@ -24,3 +24,7 @@ FROM supermarket.shoppingList JOIN supermarket.invoice on shoppingList.orderNumb
 CREATE VIEW view_invoices AS
 SELECT referenceNumber, [date], [paymentValue], paid, [counter], employee
 FROM supermarket.invoice
+
+CREATE VIEW view_products AS
+SELECT barcode, [name], brand, stock, buyPrice, retailUnitPrice, productType, wareHouseNumber
+FROM supermarket.product

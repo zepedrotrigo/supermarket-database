@@ -19,7 +19,7 @@ namespace Supermarket
 
         private void ProductsForm_Load(object sender, EventArgs e)
         {
-            Main.populateList(dataGridView1, "getEmployees"); // Mudar para getProducts
+            Main.populateList(dataGridView1, "getProducts"); // Mudar para getProducts
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -61,14 +61,14 @@ namespace Supermarket
 
         private void btn_clear_Click(object sender, EventArgs e)
         {
+            txt_barcode.Clear();
             txt_name.Clear();
-            txt_nif.Clear();
-            txt_id.Clear();
-            txt_phone.Clear();
-            txt_email.Clear();
-            txt_address.Clear();
-            txt_website.Clear();
-            txt_product_since.Clear();
+            txt_brand.Clear();
+            txt_stock.Clear();
+            txt_type.Clear();
+            txt_warehouse.Clear();
+            txt_buyprice.Clear();
+            txt_retailunitprice.Clear();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -80,14 +80,14 @@ namespace Supermarket
         {
             Dictionary<string, dynamic> parameters = new Dictionary<string, dynamic>()
             {
-                { "@productID", txt_id.Text },
+                { "@barcode", txt_barcode.Text },
                 { "@name", txt_name.Text },
-                { "@nif", txt_nif.Text },
-                { "@address", txt_address.Text },
-                { "@phone", txt_phone.Text },
-                { "@email", txt_email.Text },
-                { "@website", txt_website.Text},
-                { "@productSince", txt_product_since.Text }
+                { "@brand", txt_brand.Text },
+                { "@stock", txt_stock.Text },
+                { "@buyPrice", txt_buyprice.Text },
+                { "@retailUnitPrice", txt_retailunitprice.Text },
+                { "@productType", txt_type.Text},
+                { "@wareHouseNumber", txt_warehouse.Text }
             };
 
             List<string> parametersKeys = new List<string>(parameters.Keys);
@@ -104,14 +104,14 @@ namespace Supermarket
         {
             Dictionary<string, dynamic> parameters = new Dictionary<string, dynamic>()
             {
-                { "@productID", txt_id.Text },
+                { "@barcode", txt_barcode.Text },
                 { "@name", txt_name.Text },
-                { "@nif", txt_nif.Text },
-                { "@address", txt_address.Text },
-                { "@phone", txt_phone.Text },
-                { "@email", txt_email.Text },
-                { "@website", txt_website.Text},
-                { "@productSince", txt_product_since.Text }
+                { "@brand", txt_brand.Text },
+                { "@stock", txt_stock.Text },
+                { "@buyPrice", txt_buyprice.Text },
+                { "@retailUnitPrice", txt_retailunitprice.Text },
+                { "@productType", txt_type.Text},
+                { "@wareHouseNumber", txt_warehouse.Text }
             };
 
             List<string> parametersKeys = new List<string>(parameters.Keys);
@@ -120,9 +120,14 @@ namespace Supermarket
                 if (parameters[key] == "")
                     parameters[key] = null;
             }
-
-            Main.InsertOrRemoveIntoDB("addProduct", parameters);
-            btn_search.PerformClick(); // Populate/Update List after adding new product
+            if (string.IsNullOrWhiteSpace(txt_barcode.Text.ToString()))
+            {
+                MessageBox.Show("Barcode field is empty!");
+            }
+            {
+                Main.InsertOrRemoveIntoDB("addProduct", parameters);
+                btn_search.PerformClick(); // Populate/Update List after adding new product
+            }
         }
 
         private void btn_remove_Click(object sender, EventArgs e)

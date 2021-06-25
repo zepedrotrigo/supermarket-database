@@ -344,3 +344,70 @@ BEGIN
 	DELETE FROM supermarket.invoice WHERE referenceNumber=@referenceNumber
 END
 GO
+
+GO
+CREATE PROCEDURE dbo.getProducts
+AS
+	BEGIN
+		SET NOCOUNT ON;
+		SELECT * FROM view_products
+	END
+GO
+
+GO
+CREATE PROC dbo.filterProducts
+(
+    @barcode int = NULL,
+    @name VARCHAR(30) = NULL,
+	@brand VARCHAR(30) = NULL,
+	@stock INT = NULL,
+	@buyPrice VARCHAR(15) = NULL,
+	@retailUnitPrice FLOAT = NULL,
+    @productType VARCHAR(20) = NULL,
+	@wareHouseNumber INT = NULL
+)
+AS
+BEGIN
+	SET NOCOUNT ON;
+    SELECT DISTINCT * 
+    FROM view_products
+    WHERE   (@barcode IS NULL OR barCode = @barCode)
+            AND (@name IS NULL OR [name] LIKE @name+'%')
+            AND (@brand IS NULL OR brand LIKE @brand+'%')
+			AND (@stock IS NULL OR stock = @stock)
+			AND (@buyPrice IS NULL OR buyPrice = @buyPrice)
+			AND (@retailUnitPrice IS NULL OR retailUnitPrice = @retailUnitPrice)
+			AND (@productType IS NULL OR productType LIKE @productType+'%')
+			AND (@wareHouseNumber IS NULL OR wareHouseNumber = @wareHouseNumber)
+END
+GO
+
+CREATE PROC dbo.deleteProduct
+(
+    @barcode INT
+)
+AS
+BEGIN
+	SET NOCOUNT ON;
+	DELETE FROM supermarket.product WHERE barcode=@barcode
+END
+GO
+
+CREATE PROC dbo.addProduct
+(
+    @barcode int = NULL,
+    @name VARCHAR(30) = NULL,
+	@brand VARCHAR(30) = NULL,
+	@stock INT = NULL,
+	@buyPrice VARCHAR(15) = NULL,
+	@retailUnitPrice FLOAT = NULL,
+    @productType VARCHAR(20) = NULL,
+	@wareHouseNumber INT = NULL
+)
+AS
+BEGIN
+	SET NOCOUNT ON;
+	INSERT INTO supermarket.product(barcode, [name], brand, stock, buyPrice, retailUnitPrice, productType, wareHouseNumber)
+	VALUES(@barcode, @name, @brand, @stock, @buyPrice, @retailUnitPrice, @productType, @wareHouseNumber);
+END
+GO
