@@ -61,14 +61,11 @@ namespace Supermarket
 
         private void btn_clear_Click(object sender, EventArgs e)
         {
-            txt_name.Clear();
-            txt_nif.Clear();
-            txt_id.Clear();
-            txt_phone.Clear();
-            txt_email.Clear();
-            txt_address.Clear();
-            txt_website.Clear();
-            txt_invoice_since.Clear();
+            txt_reference.Clear();
+            txt_employee.Clear();
+            txt_paid.Clear();
+            txt_value.Clear();
+            txt_date.Clear();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -80,14 +77,11 @@ namespace Supermarket
         {
             Dictionary<string, dynamic> parameters = new Dictionary<string, dynamic>()
             {
-                { "@invoiceID", txt_id.Text },
-                { "@name", txt_name.Text },
-                { "@nif", txt_nif.Text },
-                { "@address", txt_address.Text },
-                { "@phone", txt_phone.Text },
-                { "@email", txt_email.Text },
-                { "@website", txt_website.Text},
-                { "@invoiceSince", txt_invoice_since.Text }
+                { "@referenceNumber", txt_reference.Text },
+                { "@date", txt_date.Text },
+                { "@paymentValue", txt_value.Text },
+                { "@paid", txt_paid.Text },
+                { "@employee", txt_employee.Text }
             };
 
             List<string> parametersKeys = new List<string>(parameters.Keys);
@@ -104,14 +98,11 @@ namespace Supermarket
         {
             Dictionary<string, dynamic> parameters = new Dictionary<string, dynamic>()
             {
-                { "@invoiceID", txt_id.Text },
-                { "@name", txt_name.Text },
-                { "@nif", txt_nif.Text },
-                { "@address", txt_address.Text },
-                { "@phone", txt_phone.Text },
-                { "@email", txt_email.Text },
-                { "@website", txt_website.Text},
-                { "@invoiceSince", txt_invoice_since.Text }
+                { "@referenceNumber", txt_reference.Text },
+                { "@date", txt_date.Text },
+                { "@paymentValue", txt_value.Text },
+                { "@paid", txt_paid.Text },
+                { "@employee", txt_employee.Text }
             };
 
             List<string> parametersKeys = new List<string>(parameters.Keys);

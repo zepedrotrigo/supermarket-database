@@ -270,6 +270,7 @@ BEGIN
 END
 GO
 
+GO
 CREATE PROC dbo.filterSuppliers
 (
     @supplierID INT = NULL,
@@ -298,6 +299,7 @@ BEGIN
 END
 GO
 
+GO
 CREATE PROC dbo.deleteSupplier
 (
     @nif INT
@@ -306,5 +308,39 @@ AS
 BEGIN
 	SET NOCOUNT ON;
 	DELETE FROM supermarket.supplier WHERE nif=@nif
+END
+GO
+
+GO
+CREATE PROC dbo.filterInvoices
+(
+	@referenceNumber INT = null,
+	@date DATE = NULL,
+	@paymentValue FLOAT = NULL,
+	@paid BIT = NULL,
+	@employee INT = NULL
+)
+AS
+BEGIN
+	SET NOCOUNT ON;
+    SELECT DISTINCT * 
+    FROM view_invoices
+    WHERE   (@referenceNumber IS NULL OR referenceNumber = @referenceNumber)
+			AND (@date IS NULL OR [date] >= @date)
+			AND (@paymentValue IS NULL OR paymentValue >= @paymentValue)
+			AND (@paid IS NULL OR paid = @paid)
+			AND (@employee IS NULL OR employee = @employee)
+END
+GO
+
+GO
+CREATE PROC dbo.deleteInvoice
+(
+    @referenceNumber INT
+)
+AS
+BEGIN
+	SET NOCOUNT ON;
+	DELETE FROM supermarket.invoice WHERE referenceNumber=@referenceNumber
 END
 GO
