@@ -81,11 +81,12 @@ namespace Supermarket
             Dictionary<string, dynamic> parameters = new Dictionary<string, dynamic>()
             {
                 { "@supplierID", txt_id.Text },
-                { "@name", txt_name.Text },
-                { "@nif", txt_nif.Text },
+                { "@organizationName", txt_name.Text },
                 { "@address", txt_address.Text },
-                { "@phone", txt_phone.Text },
                 { "@email", txt_email.Text },
+                { "@phone", txt_phone.Text },
+                //{ "@supplierSince", txt_supplier_since},
+                { "@nif", txt_nif.Text },
                 { "@website", txt_website.Text},
                 { "@supplierSince", txt_supplier_since.Text }
             };
@@ -105,11 +106,12 @@ namespace Supermarket
             Dictionary<string, dynamic> parameters = new Dictionary<string, dynamic>()
             {
                 { "@supplierID", txt_id.Text },
-                { "@name", txt_name.Text },
-                { "@nif", txt_nif.Text },
+                { "@organizationName", txt_name.Text },
                 { "@address", txt_address.Text },
-                { "@phone", txt_phone.Text },
                 { "@email", txt_email.Text },
+                { "@phone", txt_phone.Text },
+                //{ "@supplierSince", txt_supplier_since},
+                { "@nif", txt_nif.Text },
                 { "@website", txt_website.Text},
                 { "@supplierSince", txt_supplier_since.Text }
             };
@@ -131,7 +133,7 @@ namespace Supermarket
 
             foreach (DataGridViewRow row in dataGridView1.SelectedRows)
             {
-                parameters["@nif"] = Convert.ToInt32(row.Cells[2].Value.ToString());
+                parameters["@nif"] = Convert.ToInt32(row.Cells[6].Value.ToString());
                 Main.InsertOrRemoveIntoDB("deleteSupplier", parameters);
             }
             btn_search.PerformClick(); // Populate/Update List after adding new supplier

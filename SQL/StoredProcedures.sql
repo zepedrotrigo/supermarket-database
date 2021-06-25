@@ -249,15 +249,62 @@ AS
 	END
 GO
 
+GO
+CREATE PROC dbo.addSupplier
+(
+    @supplierID INT = NULL,
+    @organizationName VARCHAR(30) = NULL,
+	@address VARCHAR(100) = NULL,
+	@email VARCHAR(30) = NULL,
+	@phone VARCHAR(15) = NULL,
+	@supplierSince DATE = NULL,
+    @nif INT = NULL,
+	@website VARCHAR(30) = NULL,
+	@description VARCHAR(255) = NULL
+)
+AS
+BEGIN
+	SET NOCOUNT ON;
+	INSERT INTO supermarket.supplier(supplierID, organizationName, [address], email, phone, supplierSince, NIF, website, [description])
+	VALUES(@supplierID, @organizationName, @address, @email, @phone, @supplierSince, @nif, @website, @description);
+END
+GO
 
+CREATE PROC dbo.filterSuppliers
+(
+    @supplierID INT = NULL,
+    @organizationName VARCHAR(30) = NULL,
+	@address VARCHAR(100) = NULL,
+	@email VARCHAR(30) = NULL,
+	@phone VARCHAR(15) = NULL,
+	@supplierSince DATE = NULL,
+    @nif INT = NULL,
+	@website VARCHAR(30) = NULL,
+	@description VARCHAR(255) = NULL
+)
+AS
+BEGIN
+	SET NOCOUNT ON;
+    SELECT DISTINCT * 
+    FROM view_suppliers
+    WHERE   (@supplierID IS NULL OR supplierID = @supplierID)
+            AND (@organizationName IS NULL OR organizationName LIKE @organizationName+'%')
+			AND (@address IS NULL OR [address] LIKE @address+'%')
+            AND (@email IS NULL OR email LIKE @email+'%')
+			AND (@phone IS NULL OR phone LIKE @phone+'%')
+			AND (@supplierSince IS NULL OR supplierSince >= @supplierSince)
+			AND (@website IS NULL OR website LIKE @website+'%')
+			AND (@description IS NULL OR [description] LIKE @description+'%')
+END
+GO
 
-select * from supermarket.invoice;
-exec addToShoppingList @orderNumber = 0, @barcode = 123, @amount = 5
-insert into supermarket.invoice (referenceNumber, [date], paymentValue, paid, [counter], employeeID,clientID,employee)
-values (2, GETDATE(),17.0,1,2,0,0,0)
-
-insert into supermarket.shoppingList (orderNumber,productBarCode ,amount)
-values (2,1,5)
-
-select * from supermarket.shoppingList
-delete from supermarket.invoice
+CREATE PROC dbo.deleteSupplier
+(
+    @nif INT
+)
+AS
+BEGIN
+	SET NOCOUNT ON;
+	DELETE FROM supermarket.supplier WHERE nif=@nif
+END
+GO
