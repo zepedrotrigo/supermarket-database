@@ -78,7 +78,6 @@ CREATE TABLE supermarket.shoppingList(
 	FOREIGN KEY (orderNumber) REFERENCES supermarket.invoice(referenceNumber),
 	FOREIGN KEY (productBarCode) REFERENCES supermarket.product(barCode)
 );
-drop table supermarket.shoppingList
 
 CREATE TABLE supermarket.invoice(
 	referenceNumber INT,
@@ -88,7 +87,6 @@ CREATE TABLE supermarket.invoice(
 	[counter] INT,
 	employeeID INT,
 	clientID INT,
-	employee INT,
 
 	PRIMARY KEY (referenceNumber),
 	FOREIGN KEY (clientID) REFERENCES supermarket.client(clientID),
