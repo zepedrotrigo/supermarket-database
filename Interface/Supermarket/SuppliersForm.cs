@@ -123,8 +123,15 @@ namespace Supermarket
                     parameters[key] = null;
             }
 
-            Main.InsertOrRemoveIntoDB("addSupplier", parameters);
-            btn_search.PerformClick(); // Populate/Update List after adding new supplier
+            if (string.IsNullOrWhiteSpace(txt_nif.Text.ToString()))
+            {
+                MessageBox.Show("NIF field is empty!");
+            }
+            else
+            {
+                Main.InsertOrRemoveIntoDB("addSupplier", parameters);
+                btn_search.PerformClick(); // Populate/Update List after adding new supplier
+            }
         }
 
         private void btn_remove_Click(object sender, EventArgs e)
