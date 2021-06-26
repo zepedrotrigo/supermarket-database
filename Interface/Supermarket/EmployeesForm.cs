@@ -124,8 +124,20 @@ namespace Supermarket
                     parameters[key] = null;
             }
 
-            Main.InsertOrRemoveIntoDB("addEmployee", parameters);
-            btn_search.PerformClick(); // Populate/Update List after adding new employee
+            if (string.IsNullOrWhiteSpace(txt_nif.Text.ToString()))
+            {
+                MessageBox.Show("NIF field is empty!");
+            }
+            else if (string.IsNullOrWhiteSpace(txt_id.Text.ToString()))
+            {
+                MessageBox.Show("ID can't be null!");
+            }
+            else
+            {
+                Main.InsertOrRemoveIntoDB("addEmployee", parameters);
+                btn_search.PerformClick(); // Populate/Update List after adding new employee
+            }
+
         }
 
         private void btn_remove_Click(object sender, EventArgs e)

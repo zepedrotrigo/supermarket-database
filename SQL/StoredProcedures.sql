@@ -302,12 +302,12 @@ GO
 GO
 CREATE PROC dbo.deleteSupplier
 (
-    @nif INT
+    @supplierID INT
 )
 AS
 BEGIN
 	SET NOCOUNT ON;
-	DELETE FROM supermarket.supplier WHERE nif=@nif
+	DELETE FROM supermarket.supplier WHERE supplierID=@supplierID
 END
 GO
 

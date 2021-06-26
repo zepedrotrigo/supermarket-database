@@ -85,10 +85,9 @@ namespace Supermarket
                 { "@address", txt_address.Text },
                 { "@email", txt_email.Text },
                 { "@phone", txt_phone.Text },
-                //{ "@supplierSince", txt_supplier_since},
+                { "@supplierSince", txt_supplier_since.Text },
                 { "@nif", txt_nif.Text },
-                { "@website", txt_website.Text},
-                { "@supplierSince", txt_supplier_since.Text }
+                { "@website", txt_website.Text}
             };
 
             List<string> parametersKeys = new List<string>(parameters.Keys);
@@ -106,14 +105,7 @@ namespace Supermarket
             Dictionary<string, dynamic> parameters = new Dictionary<string, dynamic>()
             {
                 { "@supplierID", txt_id.Text },
-                { "@organizationName", txt_name.Text },
-                { "@address", txt_address.Text },
-                { "@email", txt_email.Text },
-                { "@phone", txt_phone.Text },
-                //{ "@supplierSince", txt_supplier_since},
-                { "@nif", txt_nif.Text },
-                { "@website", txt_website.Text},
-                { "@supplierSince", txt_supplier_since.Text }
+                { "@nif", txt_nif.Text }
             };
 
             List<string> parametersKeys = new List<string>(parameters.Keys);
@@ -126,6 +118,10 @@ namespace Supermarket
             if (string.IsNullOrWhiteSpace(txt_nif.Text.ToString()))
             {
                 MessageBox.Show("NIF field is empty!");
+            }
+            else if (string.IsNullOrWhiteSpace(txt_id.Text.ToString()))
+            {
+                MessageBox.Show("ID can't be null!");
             }
             else
             {
@@ -140,7 +136,8 @@ namespace Supermarket
 
             foreach (DataGridViewRow row in dataGridView1.SelectedRows)
             {
-                parameters["@nif"] = Convert.ToInt32(row.Cells[6].Value.ToString());
+                MessageBox.Show(row.Cells[0].Value.ToString());
+                parameters["@supplierID"] = Convert.ToInt32(row.Cells[0].Value.ToString());
                 Main.InsertOrRemoveIntoDB("deleteSupplier", parameters);
             }
             btn_search.PerformClick(); // Populate/Update List after adding new supplier

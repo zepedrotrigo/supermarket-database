@@ -125,10 +125,14 @@ namespace Supermarket
             {
                 MessageBox.Show("NIF field is empty!");
             }
+            else if (string.IsNullOrWhiteSpace(txt_id.Text.ToString()))
+            {
+                MessageBox.Show("ID can't be null!");
+            }
             else
             {
                 Main.InsertOrRemoveIntoDB("addClient", parameters);
-                btn_search.PerformClick(); // Populate/Update List after adding new client
+                btn_search.PerformClick(); // Populate/Update List after adding new employee
             }
         }
 
@@ -138,6 +142,7 @@ namespace Supermarket
 
             foreach (DataGridViewRow row in dataGridView1.SelectedRows)
             {
+                MessageBox.Show(txt_id.Text.ToString());
                 parameters["@nif"] = Convert.ToInt32(row.Cells[2].Value.ToString());
                 Main.InsertOrRemoveIntoDB("deleteClient", parameters);
             }

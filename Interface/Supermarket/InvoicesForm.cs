@@ -122,7 +122,7 @@ namespace Supermarket
 
             foreach (DataGridViewRow row in dataGridView1.SelectedRows)
             {
-                parameters["@nif"] = Convert.ToInt32(row.Cells[2].Value.ToString());
+                parameters["@referenceNumber"] = Convert.ToInt32(row.Cells[0].Value.ToString());
                 Main.InsertOrRemoveIntoDB("deleteInvoice", parameters);
             }
             btn_search.PerformClick(); // Populate/Update List after adding new invoice

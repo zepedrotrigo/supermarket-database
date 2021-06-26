@@ -124,7 +124,25 @@ namespace Supermarket
             {
                 MessageBox.Show("Barcode field is empty!");
             }
+            else if (string.IsNullOrWhiteSpace(txt_stock.Text.ToString()))
             {
+                MessageBox.Show("Must insert stock!");
+            }
+            else if (string.IsNullOrWhiteSpace(txt_name.Text.ToString()))
+            {
+                MessageBox.Show("Please insert product name!");
+            }
+            else if (string.IsNullOrWhiteSpace(txt_buyprice.Text.ToString()))
+            {
+                MessageBox.Show("Must insert price!");
+            }
+            else if (string.IsNullOrWhiteSpace(txt_retailunitprice.Text.ToString()))
+            {
+                MessageBox.Show("Must insert price!");
+            }
+            else
+            {
+                MessageBox.Show(txt_name.Text.ToString());  
                 Main.InsertOrRemoveIntoDB("addProduct", parameters);
                 btn_search.PerformClick(); // Populate/Update List after adding new product
             }
@@ -136,7 +154,7 @@ namespace Supermarket
 
             foreach (DataGridViewRow row in dataGridView1.SelectedRows)
             {
-                parameters["@nif"] = Convert.ToInt32(row.Cells[2].Value.ToString());
+                parameters["@barcode"] = Convert.ToInt32(row.Cells[0].Value.ToString());
                 Main.InsertOrRemoveIntoDB("deleteProduct", parameters);
             }
             btn_search.PerformClick(); // Populate/Update List after adding new product
