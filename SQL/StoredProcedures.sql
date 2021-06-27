@@ -327,11 +327,12 @@ BEGIN
     FROM view_invoices
     WHERE   (@referenceNumber IS NULL OR referenceNumber = @referenceNumber)
 			AND (@date IS NULL OR [date] >= @date)
-			AND (@paymentValue IS NULL OR paymentValue >= @paymentValue)
+			AND (@paymentValue IS NULL OR paymentValue = @paymentValue)
 			AND (@paid IS NULL OR paid = @paid)
 			AND (@employee IS NULL OR employee = @employee)
 END
 GO
+
 
 GO
 CREATE PROC dbo.deleteInvoice
