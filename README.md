@@ -1,3 +1,4 @@
 # supermarket-database
 Sistema de Base de Dados de um supermercado
-![Image](https://drive.google.com/file/d/1n8Gw-6smW9u6MwoHBg2F1tsuh8-c57xb/view?usp=sharing)
+![Image](/video_images_and_report/bd1.png)
+![Image](/video_images_and_report/bd2.png)
